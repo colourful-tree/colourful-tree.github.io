@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>相册 | Colourful-Tree</title>
+  <title>ElasticSearch基础用法 | Colourful-Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Photos   	图片来自github，正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($">
-<meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://yoursite.com/photos/index.html">
+  <meta name="description" content="ElasticSearch 基础查询操作 查询所有数据123&amp;#123;  &quot;query&quot;: &amp;#123; &quot;match_all&quot;: &amp;#123;&amp;#125; &amp;#125;&amp;#125;">
+<meta name="keywords" content="ElasticSearch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ElasticSearch基础用法">
+<meta property="og:url" content="http://yoursite.com/2017/10/03/elastic-search/index.html">
 <meta property="og:site_name" content="Colourful-Tree">
-<meta property="og:description" content="Photos   	图片来自github，正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($">
-<meta property="og:updated_time" content="2017-10-03T08:52:09.000Z">
+<meta property="og:description" content="ElasticSearch 基础查询操作 查询所有数据123&amp;#123;  &quot;query&quot;: &amp;#123; &quot;match_all&quot;: &amp;#123;&amp;#125; &amp;#125;&amp;#125;">
+<meta property="og:updated_time" content="2017-10-03T11:29:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="Photos   	图片来自github，正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($">
+<meta name="twitter:title" content="ElasticSearch基础用法">
+<meta name="twitter:description" content="ElasticSearch 基础查询操作 查询所有数据123&amp;#123;  &quot;query&quot;: &amp;#123; &quot;match_all&quot;: &amp;#123;&amp;#125; &amp;#125;&amp;#125;">
   
   
     <link rel="icon" href="/favicon.png">
@@ -139,41 +140,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-photos" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-elastic-search" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      ElasticSearch基础用法
     </h1>
   
 
+        
+        <a href="/2017/10/03/elastic-search/" class="archive-article-date">
+  	<time datetime="2017-10-03T11:29:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-03</time>
+</a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" href="./ins.css">
-<div class="photos-btn-wrap">
-	<a class="photos-btn active" href="javascript:void(0)" target="_blank" rel="external">Photos</a>
-</div>
-<div class="instagram itemscope">
-	<a href="https://github.com/colourful-tree/photos/tree/master/photos" target="_blank" class="open-ins">图片来自github，正在加载中…</a>
-</div>
-<script>
-  (function() {
-    var loadScript = function(path) {
-      var $script = document.createElement('script')
-      document.getElementsByTagName('body')[0].appendChild($script)
-      $script.setAttribute('src', path)
-    }
-    setTimeout(function() {
-      loadScript('./ins.js')
-    }, 0)
-  })()
-</script>
+        <p>ElasticSearch 基础查询操作</p>
+<h3 id="查询所有数据"><a href="#查询所有数据" class="headerlink" title="查询所有数据"></a>查询所有数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"query"</span>: &#123; <span class="string">"match_all"</span>: &#123;&#125; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="查询第10条至第30条"><a href="#查询第10条至第30条" class="headerlink" title="查询第10条至第30条"></a>查询第10条至第30条</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"query"</span>: &#123; <span class="string">"match_all"</span>: &#123;&#125; &#125;,</div><div class="line">  <span class="string">"from"</span>: 10,</div><div class="line">  <span class="string">"size"</span>: 20</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="查找某字段-降序"><a href="#查找某字段-降序" class="headerlink" title="查找某字段, 降序"></a>查找某字段, 降序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"query"</span>: &#123; <span class="string">"match_all"</span>: &#123;&#125; &#125;,</div><div class="line">  <span class="string">"sort"</span>: &#123; <span class="string">"field"</span>: &#123; <span class="string">"order"</span>: <span class="string">"desc"</span> &#125; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="查找包换某字段-如是文本，分析器可以开"><a href="#查找包换某字段-如是文本，分析器可以开" class="headerlink" title="查找包换某字段(如是文本，分析器可以开)"></a>查找包换某字段(如是文本，分析器可以开)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"query"</span>: &#123; <span class="string">"match"</span>: &#123; <span class="string">"field"</span>: <span class="string">"mill"</span> &#125; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="查找等于某字段-如是文本，分析器不能开"><a href="#查找等于某字段-如是文本，分析器不能开" class="headerlink" title="查找等于某字段(如是文本，分析器不能开)"></a>查找等于某字段(如是文本，分析器不能开)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"filter"</span>: &#123; <span class="string">"term"</span>: &#123; <span class="string">"field"</span>: 20 &#125; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="多条件匹配"><a href="#多条件匹配" class="headerlink" title="多条件匹配"></a>多条件匹配</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"query"</span>: &#123;</div><div class="line">    <span class="string">"bool"</span>: &#123;</div><div class="line">      <span class="string">"must/should"</span>: [</div><div class="line">        &#123; <span class="string">"match"</span>: &#123; <span class="string">"field"</span>: <span class="string">"value1"</span> &#125; &#125;,</div><div class="line">        &#123; <span class="string">"match"</span>: &#123; <span class="string">"field"</span>: <span class="string">"value2"</span> &#125; &#125;</div><div class="line">      ]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
 
@@ -208,6 +202,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ElasticSearch</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -258,7 +263,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/photos/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/03/elastic-search/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -270,6 +275,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2017/10/03/hexo-deploy/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hexo deploy
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/03/hexo-tags/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo tags</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -291,7 +315,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#查询所有数据"><span class="toc-number">1.</span> <span class="toc-text">查询所有数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询第10条至第30条"><span class="toc-number">2.</span> <span class="toc-text">查询第10条至第30条</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找某字段-降序"><span class="toc-number">3.</span> <span class="toc-text">查找某字段, 降序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找包换某字段-如是文本，分析器可以开"><span class="toc-number">4.</span> <span class="toc-text">查找包换某字段(如是文本，分析器可以开)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找等于某字段-如是文本，分析器不能开"><span class="toc-number">5.</span> <span class="toc-text">查找等于某字段(如是文本，分析器不能开)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多条件匹配"><span class="toc-number">6.</span> <span class="toc-text">多条件匹配</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -301,6 +325,16 @@
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -324,7 +358,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
