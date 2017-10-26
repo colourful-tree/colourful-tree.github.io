@@ -126,7 +126,7 @@
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2017/10/03</span>
+                <span class="post-intro-time">2017/10/26</span>
             </div>
         
     </div>
@@ -142,23 +142,17 @@
 <h3 id="查找包换某字段-如是文本，分析器可以开"><a href="#查找包换某字段-如是文本，分析器可以开" class="headerlink" title="查找包换某字段(如是文本，分析器可以开)"></a>查找包换某字段(如是文本，分析器可以开)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"query"</span>: &#123; <span class="string">"match"</span>: &#123; <span class="string">"field"</span>: <span class="string">"mill"</span> &#125; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="查找等于某字段-如是文本，分析器不能开"><a href="#查找等于某字段-如是文本，分析器不能开" class="headerlink" title="查找等于某字段(如是文本，分析器不能开)"></a>查找等于某字段(如是文本，分析器不能开)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"filter"</span>: &#123; <span class="string">"term"</span>: &#123; <span class="string">"field"</span>: 20 &#125; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="多条件匹配"><a href="#多条件匹配" class="headerlink" title="多条件匹配"></a>多条件匹配</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"query"</span>: &#123;</div><div class="line">    <span class="string">"bool"</span>: &#123;</div><div class="line">      <span class="string">"must/should"</span>: [</div><div class="line">        &#123; <span class="string">"match"</span>: &#123; <span class="string">"field"</span>: <span class="string">"value1"</span> &#125; &#125;,</div><div class="line">        &#123; <span class="string">"match"</span>: &#123; <span class="string">"field"</span>: <span class="string">"value2"</span> &#125; &#125;</div><div class="line">      ]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="提高泛化与准确率"><a href="#提高泛化与准确率" class="headerlink" title="提高泛化与准确率"></a>提高泛化与准确率</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"query"</span>: &#123;</div><div class="line">    <span class="string">"bool"</span>: &#123;</div><div class="line">      <span class="string">"must"</span>: [</div><div class="line">        &#123;</div><div class="line">          <span class="string">"match"</span>: &#123;</div><div class="line">            <span class="string">"content"</span>: <span class="string">"java spark"</span></div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      ],</div><div class="line">      <span class="string">"should"</span>: [</div><div class="line">        &#123;</div><div class="line">          <span class="string">"match_phrase"</span>: &#123;</div><div class="line">            <span class="string">"content"</span>: &#123;</div><div class="line">              <span class="string">"query"</span>: <span class="string">"java spark"</span>,</div><div class="line">              <span class="string">"slop"</span> : 50</div><div class="line">            &#125;</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      ]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2017/10/03/hexo-deploy/" title= Hexo deploy >
-                    <span>Next Post</span>
-                    <span>Hexo deploy</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2017/10/03/hexo-tags/" title= Hexo tags >
+                <a href= "/2017/10/05/gubeishuizhen/" title= 古北水镇 >
                     <span>Previous Post</span>
-                    <span>Hexo tags</span>
+                    <span>古北水镇</span>
                 </a>
             </li>
         
@@ -298,16 +292,6 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-archive"> Total : 7 </div>
     
     <div class="post-archive">
@@ -317,6 +301,11 @@
     
     <div class="archive-year"> 2017 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/26</span><a class="archive-post-title" href= "/2017/10/26/elastic-search/" >ElasticSearch基础用法</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -335,22 +324,17 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/markdown/" >MarkDown</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/hexo-deploy/" >Hexo deploy</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/hexo-tags/" >Hexo tags</a>
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/markdown/" >MarkDown</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/elastic-search/" >ElasticSearch基础用法</a>
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/hexo-tags/" >Hexo tags</a>
         </li>
     
     </div>
