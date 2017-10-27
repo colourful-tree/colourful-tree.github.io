@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        ElasticSearch基础用法 · Colourful_Tree&#39;s Studio
+        Elastic analyze · Colourful_Tree&#39;s Studio
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -81,7 +81,7 @@
                 <a href="/" >Colourful_Tree&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">ElasticSearch基础用法</a>
+                <a href="#" class="post-name">Elastic analyze</a>
             </div>
     </div>
     
@@ -102,7 +102,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            ElasticSearch基础用法
+            Elastic analyze
             <!-- 404 -->
             
         </h1>
@@ -126,7 +126,7 @@
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2017/10/26</span>
+                <span class="post-intro-time">2017/10/27</span>
             </div>
         
     </div>
@@ -134,32 +134,18 @@
         <div class="container">
             <main class="main post-page">
     <article class="article-entry">
-        <p>ElasticSearch 基础查询操作</p>
-<h3 id="查询所有数据"><a href="#查询所有数据" class="headerlink" title="查询所有数据"></a>查询所有数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"query"</span>: &#123; <span class="string">"match_all"</span>: &#123;&#125; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="查询第10条至第30条"><a href="#查询第10条至第30条" class="headerlink" title="查询第10条至第30条"></a>查询第10条至第30条</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"query"</span>: &#123; <span class="string">"match_all"</span>: &#123;&#125; &#125;,</div><div class="line">  <span class="string">"from"</span>: 10,</div><div class="line">  <span class="string">"size"</span>: 20</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="查找某字段-降序"><a href="#查找某字段-降序" class="headerlink" title="查找某字段, 降序"></a>查找某字段, 降序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"query"</span>: &#123; <span class="string">"match_all"</span>: &#123;&#125; &#125;,</div><div class="line">  <span class="string">"sort"</span>: &#123; <span class="string">"field"</span>: &#123; <span class="string">"order"</span>: <span class="string">"desc"</span> &#125; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="查找包换某字段-如是文本，分析器可以开"><a href="#查找包换某字段-如是文本，分析器可以开" class="headerlink" title="查找包换某字段(如是文本，分析器可以开)"></a>查找包换某字段(如是文本，分析器可以开)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"query"</span>: &#123; <span class="string">"match"</span>: &#123; <span class="string">"field"</span>: <span class="string">"mill"</span> &#125; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="查找等于某字段-如是文本，分析器不能开"><a href="#查找等于某字段-如是文本，分析器不能开" class="headerlink" title="查找等于某字段(如是文本，分析器不能开)"></a>查找等于某字段(如是文本，分析器不能开)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"filter"</span>: &#123; <span class="string">"term"</span>: &#123; <span class="string">"field"</span>: 20 &#125; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="多条件匹配"><a href="#多条件匹配" class="headerlink" title="多条件匹配"></a>多条件匹配</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"query"</span>: &#123;</div><div class="line">    <span class="string">"bool"</span>: &#123;</div><div class="line">      <span class="string">"must/should"</span>: [</div><div class="line">        &#123; <span class="string">"match"</span>: &#123; <span class="string">"field"</span>: <span class="string">"value1"</span> &#125; &#125;,</div><div class="line">        &#123; <span class="string">"match"</span>: &#123; <span class="string">"field"</span>: <span class="string">"value2"</span> &#125; &#125;</div><div class="line">      ]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="提高泛化与准确率"><a href="#提高泛化与准确率" class="headerlink" title="提高泛化与准确率"></a>提高泛化与准确率</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"query"</span>: &#123;</div><div class="line">    <span class="string">"bool"</span>: &#123;</div><div class="line">      <span class="string">"must"</span>: [</div><div class="line">        &#123;</div><div class="line">          <span class="string">"match"</span>: &#123;</div><div class="line">            <span class="string">"content"</span>: <span class="string">"java spark"</span></div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      ],</div><div class="line">      <span class="string">"should"</span>: [</div><div class="line">        &#123;</div><div class="line">          <span class="string">"match_phrase"</span>: &#123;</div><div class="line">            <span class="string">"content"</span>: &#123;</div><div class="line">              <span class="string">"query"</span>: <span class="string">"java spark"</span>,</div><div class="line">              <span class="string">"slop"</span> : 50</div><div class="line">            &#125;</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      ]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>analyze</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">GET /_analyze</div><div class="line">&#123;</div><div class="line">  <span class="string">"analyzer"</span>: <span class="string">"standard"</span>,</div><div class="line">  <span class="string">"text"</span>:<span class="string">"十二生肖的故事"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2017/10/27/elastic-match_phrase/" title= Elastic match_phrase >
-                    <span>Next Post</span>
-                    <span>Elastic match_phrase</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2017/10/05/gubeishuizhen/" title= 古北水镇 >
+                <a href= "/2017/10/27/elastic-match_phrase/" title= Elastic match_phrase >
                     <span>Previous Post</span>
-                    <span>古北水镇</span>
+                    <span>Elastic match_phrase</span>
                 </a>
             </li>
         
