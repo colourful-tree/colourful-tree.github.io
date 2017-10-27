@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        MarkDown · Colourful_Tree&#39;s Studio
+        Elastic match_phrase · Colourful_Tree&#39;s Studio
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -81,7 +81,7 @@
                 <a href="/" >Colourful_Tree&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">MarkDown</a>
+                <a href="#" class="post-name">Elastic match_phrase</a>
             </div>
     </div>
     
@@ -102,7 +102,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            MarkDown
+            Elastic match_phrase
             <!-- 404 -->
             
         </h1>
@@ -120,13 +120,13 @@
             
                 <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = MarkDown>MarkDown</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = ElasticSearch>ElasticSearch</a>
     
 </div>
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2017/10/03</span>
+                <span class="post-intro-time">2017/10/27</span>
             </div>
         
     </div>
@@ -134,62 +134,22 @@
         <div class="container">
             <main class="main post-page">
     <article class="article-entry">
-        <p>MD基础语法在这里都可以找到啦</p>
-<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p><strong>斜体</strong></p>
-<p><em>将需要设置为斜体的文字两端使用一个星号</em></p>
-<p><strong>删除线</strong></p>
-<p><del>在需要设置删除线的文字两侧加两个波浪线</del></p>
-<p><strong>分割线</strong></p>
-<p><strong><em>分割线的语法只需要三个星号</em></strong></p>
-<a id="more"></a>
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p><a href="http://www.baidu.com" target="_blank" rel="external">百度一下</a></p>
-<h2 id="内嵌代码"><a href="#内嵌代码" class="headerlink" title="内嵌代码"></a>内嵌代码</h2><p><code>重点</code>内容</p>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><table>
-<thead>
-<tr>
-<th>Tables</th>
-<th style="text-align:center">Are</th>
-<th style="text-align:right">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>row1</td>
-<td style="text-align:center">A</td>
-<td style="text-align:right">$160</td>
-</tr>
-<tr>
-<td>row2</td>
-<td style="text-align:center">B</td>
-<td style="text-align:right">$12</td>
-</tr>
-<tr>
-<td>row3</td>
-<td style="text-align:center">C</td>
-<td style="text-align:right">$1</td>
-</tr>
-</tbody>
-</table>
-<h2 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![description](/img/01.jpeg)</div></pre></td></tr></table></figure>
-<p><img src="/img/01.jpeg" alt="天气不错"></p>
-<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> random</div><div class="line"></div><div class="line">init_gold, person, minutes = <span class="number">100</span>, <span class="number">500</span>, <span class="number">10000</span></div><div class="line">golds = [init_gold] * person</div><div class="line"></div><div class="line"><span class="keyword">for</span> m <span class="keyword">in</span> range(minutes):</div><div class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> range(person):</div><div class="line">        <span class="keyword">if</span> golds[p] &gt; <span class="number">0</span>:</div><div class="line">            golds[p] -= <span class="number">1</span></div><div class="line">            choice_person = random.randint(<span class="number">0</span>, person - <span class="number">1</span>)</div><div class="line">            golds[choice_person] += <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> golds:</div><div class="line">    <span class="keyword">print</span> i</div></pre></td></tr></table></figure>
+        <p>match_phrase</p>
+<h3 id="短语是什么"><a href="#短语是什么" class="headerlink" title="短语是什么"></a>短语是什么</h3><p>对于匹配了短语”quick brown fox”的文档，下面的条件必须为true:<br>quick、brown和fox必须全部出现在某个字段中。<br>brown的位置必须比quick的位置大1。<br>fox的位置必须比quick的位置大2。<br>如果以上的任何一个条件没有被满足，那么文档就不能被匹配。<br><a id="more"></a></p>
+<h3 id="Mixing-it-up"><a href="#Mixing-it-up" class="headerlink" title="Mixing it up"></a>Mixing it up</h3><p>精确短语(Exact-phrase)匹配也许太过于严格了。也许我们希望含有”quick brown fox”的文档也能够匹配”quick fox”查询，即使位置并不是完全相等的。</p>
+<p>我们可以在短语匹配使用slop参数来引入一些灵活性</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"query"</span>: &#123;</div><div class="line">        <span class="string">"match_phrase"</span>: &#123;</div><div class="line">            <span class="string">"title"</span>: &#123;</div><div class="line">                <span class="string">"query"</span>: <span class="string">"quick fox"</span>,</div><div class="line">                <span class="string">"slop"</span>:  1</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>slop 值越大越宽松</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2017/10/03/music-video/" title= Music >
-                    <span>Next Post</span>
-                    <span>Music</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2017/10/03/hexo-deploy/" title= Hexo deploy >
+                <a href= "/2017/10/26/elastic-search/" title= ElasticSearch基础用法 >
                     <span>Previous Post</span>
-                    <span>Hexo deploy</span>
+                    <span>ElasticSearch基础用法</span>
                 </a>
             </li>
         
