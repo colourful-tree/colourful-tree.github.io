@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        Colourful_Tree&#39;s Studio
+        Elastic FieldLength · Colourful_Tree&#39;s Studio
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -68,11 +68,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Colourful_Tree&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Elastic FieldLength</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Colourful_Tree's Studio.</a>
 </header>
@@ -80,223 +91,81 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            Elastic FieldLength
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+        </p>
+        <!-- 404 -->
+        
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = ElasticSearch>ElasticSearch</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/11/01</span>
+            </div>
         
     </div>
 </div>
         <div class="container">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/03/music-video/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Music</span>
-                    </h2>
-                <div class="abstract-content">
-                    MardDown 播放音乐的方法打开网易云音乐，生成外链链接，复制链接到md中即可
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>Elastic FieldLength</p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>explain中fieldLength长度不是一个整数，而是使用一个区间映射的值，导致长度6,7长度一样，match得不到想要的结果。</p>
+<h1 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h1><ol>
+<li><p>在lucene为了降低存储的空间，在存储field的长度时，没有存储实际长度，而是存储了一个byte类型的值(0-255),每个值对应了BM25Similarity有NORM_TABLE中的index,<br>在BM25Similarity有NORM_TABLE的float数组，实现了一个区间映射的功能。</p>
+</li>
+<li><p><a href="https://github.com/elastic/elasticsearch/issues/25916" target="_blank" rel="external">FieldLength not an integer</a></p>
+</li>
+</ol>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"size"</span>:5,</div><div class="line">  <span class="string">"sort"</span>:[</div><div class="line">    &#123;<span class="string">"_score"</span>: <span class="string">"desc"</span>&#125;,</div><div class="line">    &#123;<span class="string">"_script"</span>:</div><div class="line">      &#123;</div><div class="line">        <span class="string">"type"</span>:<span class="string">"number"</span>,</div><div class="line">        <span class="string">"script"</span>:<span class="string">"doc['abc'].length"</span>,</div><div class="line">        <span class="string">"order"</span>:<span class="string">"asc"</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  ],</div><div class="line">  <span class="string">"query"</span>:&#123;</div><div class="line">    <span class="string">"bool"</span>:&#123;</div><div class="line">      <span class="string">"must"</span>:[&#123;</div><div class="line">        <span class="string">"match"</span>:&#123;</div><div class="line">          <span class="string">"abc"</span>:<span class="string">"value"</span></div><div class="line">        &#125;</div><div class="line">      &#125;]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2017/11/01/elastic-match_phrase/" title= Elastic Match_phrase >
+                    <span>Previous Post</span>
+                    <span>Elastic Match_phrase</span>
+                </a>
+            </li>
+        
+    </ul>
 
 
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = MarkDown>MarkDown</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/03</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/03/markdown/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>MarkDown</span>
-                    </h2>
-                <div class="abstract-content">
-                    MD基础语法在这里都可以找到啦
-字体斜体
-将需要设置为斜体的文字两端使用一个星号
-删除线
-在需要设置删除线的文字两侧加两个波浪线
-分割线
-分割线的语法只需要三个星号
+    <!-- 来必力City版安装代码 -->
 
-超链接百度一下
-内嵌代码重点内容
-表格
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
 
-
-Tables
-Are
-Cool
-
-
-
-
-row1
-A
-$160
-
-
-row2
-B
-$12
-
-
-row3
-C
-$1
-
-
-
-添加图片1![description](/img/01.jpeg)
-
-代码块1234567891011121314import randominit_gold, person, minutes = 100, 500, 10000golds = [init_gol...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = MarkDown>MarkDown</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/03</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/03/hexo-deploy/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Hexo deploy</span>
-                    </h2>
-                <div class="abstract-content">
-                    hexo deploy 如果部署失败请看这里
-First在跟目录下:1npm install hexo-deployer-git --save
-Second1hexo clean &amp;&amp; hexo generate &amp;&amp; hexo d
-
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = Hexo>Hexo</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/03</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/03/hexo-tags/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Hexo tags</span>
-                    </h2>
-                <div class="abstract-content">
-                    Hexo tags生效方法看这里
-First在跟目录下:1hexo new page tags
-
-Second确认站点配置文件里有tag_dir: tags确认主题配置文件里有tags: /tags编辑根目录下的source/tags/index.md，添加
-1234title: tagsdate: 2017-10-03 14:29:50type: "tags"comments: false
-Third在source/_post/xx.md中123tags:  - tag1  - tag2
-
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = Hexo>Hexo</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/03</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/03/mysql/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>MySQL</span>
-                    </h2>
-                <div class="abstract-content">
-                    MySQL 基础操作在这里
-刷权限1GRANT ALL ON *.* TO admin@'%' IDENTIFIED BY 'admin' WITH GRANT OPTION;
-建用户1CREATE USER 'username'@'host' IDENTIFIED BY 'password';
-
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = mysql>mysql</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/03</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/">#PREV</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
     
 </main>
             <!-- profile -->

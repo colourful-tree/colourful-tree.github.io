@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        Elastic match_phrase · Colourful_Tree&#39;s Studio
+        Colourful_Tree&#39;s Studio
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -68,22 +68,11 @@
     
 </head>
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >Colourful_Tree&#39;s Studio.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">Elastic match_phrase</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>Colourful_Tree's Studio.</a>
 </header>
@@ -91,85 +80,125 @@
         <div class="site-intro">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Elastic match_phrase
-            <!-- 404 -->
-            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-        </p>
-        <!-- 404 -->
-        
         <!-- 文章页meta -->
-        
-            <!-- 文章页标签  -->
-            
-                <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = ElasticSearch>ElasticSearch</a>
-    
-</div>
-            
-            <div class="post-intro-meta">
-                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2017/10/27</span>
-            </div>
         
     </div>
 </div>
         <div class="container">
-            <main class="main post-page">
-    <article class="article-entry">
-        <p>match_phrase</p>
-<h3 id="短语是什么"><a href="#短语是什么" class="headerlink" title="短语是什么"></a>短语是什么</h3><p>对于匹配了短语”quick brown fox”的文档，下面的条件必须为true:<br>quick、brown和fox必须全部出现在某个字段中。<br>brown的位置必须比quick的位置大1。<br>fox的位置必须比quick的位置大2。<br>如果以上的任何一个条件没有被满足，那么文档就不能被匹配。<br><a id="more"></a></p>
-<h3 id="Mixing-it-up"><a href="#Mixing-it-up" class="headerlink" title="Mixing it up"></a>Mixing it up</h3><p>精确短语(Exact-phrase)匹配也许太过于严格了。也许我们希望含有”quick brown fox”的文档也能够匹配”quick fox”查询，即使位置并不是完全相等的。</p>
-<p>我们可以在短语匹配使用slop参数来引入一些灵活性</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"query"</span>: &#123;</div><div class="line">        <span class="string">"match_phrase"</span>: &#123;</div><div class="line">            <span class="string">"title"</span>: &#123;</div><div class="line">                <span class="string">"query"</span>: <span class="string">"quick fox"</span>,</div><div class="line">                <span class="string">"slop"</span>:  1</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>slop 值越大越宽松</p>
-
-    </article>
-    <!-- 前后页  -->
-    <ul class="post-pager">
-        
-            <li class="next">
-                <a href= "/2017/10/27/elastic-analyzer/" title= Elastic analyze >
-                    <span>Next Post</span>
-                    <span>Elastic analyze</span>
-                </a>
-            </li>
-        
-        
-            <li class="previous">
-                <a href= "/2017/10/26/elastic-search/" title= ElasticSearch基础用法 >
-                    <span>Previous Post</span>
-                    <span>ElasticSearch基础用法</span>
-                </a>
-            </li>
-        
-    </ul>
-
-
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
+            <main class="main index-page">
     
     
-    <!--PC版-->
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2017/11/01/elastic-fieldLength/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>Elastic FieldLength</span>
+                    </h2>
+                <div class="abstract-content">
+                    Elastic FieldLength
+问题描述explain中fieldLength长度不是一个整数，而是使用一个区间映射的值，导致长度6,7长度一样，match得不到想要的结果。
+解释
+在lucene为了降低存储的空间，在存储field的长度时，没有存储实际长度，而是存储了一个byte类型的值(0-255),每个值对应了BM25Similarity有NORM_TABLE中的index,在BM25Similarity有NORM_TABLE的float数组，实现了一个区间映射的功能。
 
+FieldLength not an integer
+
+
+解决方法123456789101112131...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = ElasticSearch>ElasticSearch</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/11/01</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2017/11/01/elastic-match_phrase/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>Elastic Match_phrase</span>
+                    </h2>
+                <div class="abstract-content">
+                    Match_phrase
+短语是什么对于匹配了短语”quick brown fox”的文档，下面的条件必须为true:quick、brown和fox必须全部出现在某个字段中。brown的位置必须比quick的位置大1。fox的位置必须比quick的位置大2。如果以上的任何一个条件没有被满足，那么文档就不能被匹配。
+Mixing it up精确短语(Exact-phrase)匹配也许太过于严格了。也许我们希望含有”quick brown fox”的文档也能够匹配”quick fox”查询，即使位置并不是完全相等的。
+我们可以在短语匹配使用slop参数来引入一些灵活性
+12345678910...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = ElasticSearch>ElasticSearch</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/11/01</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2017/11/01/elastic-analyzer/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>Elastic Analyze</span>
+                    </h2>
+                <div class="abstract-content">
+                    Analyze
+12345GET /_analyze&#123;  "analyzer": "standard",  "text":"十二生肖的故事"&#125;
+
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = ElasticSearch>ElasticSearch</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/11/01</span>
+                </div>
+            </div>
+        </article>
+    
+    <!-- paginator  -->
     
 </main>
             <!-- profile -->
@@ -312,7 +341,26 @@
     
     
     
-    <div class="total-archive"> Total : 9 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 10 </div>
     
     <div class="post-archive">
     
@@ -324,12 +372,17 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/27</span><a class="archive-post-title" href= "/2017/10/27/elastic-analyzer/" >Elastic analyze</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2017/11/01/elastic-fieldLength/" >Elastic FieldLength</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/27</span><a class="archive-post-title" href= "/2017/10/27/elastic-match_phrase/" >Elastic match_phrase</a>
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2017/11/01/elastic-match_phrase/" >Elastic Match_phrase</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2017/11/01/elastic-analyzer/" >Elastic Analyze</a>
         </li>
     
     
@@ -344,12 +397,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/music-video/" >Music</a>
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/mysql/" >MySQL</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/mysql/" >MySQL</a>
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/music-video/" >Music</a>
         </li>
     
     
@@ -374,13 +427,13 @@
     
         <span class="sidebar-tag-name"><a href= "#">ElasticSearch</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Story</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">Hexo</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">MarkDown</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">mysql</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Story</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
